@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="semestr_spring@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.1">
+    <root id="1"/>
+    <database id="2" parent="1" name="semestr_spring">
+      <ObjectId>24763</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-09.14:26:45.801</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1585</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="category_id_seq">
+      <ObjectId>26032</ObjectId>
+      <StateNumber>1579</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="comment_id_seq">
+      <ObjectId>26040</ObjectId>
+      <StateNumber>1580</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="3" name="goods_good_id_seq">
+      <ObjectId>26053</ObjectId>
+      <StateNumber>1582</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="12" parent="3" name="orders_order_id_seq">
+      <ObjectId>26069</ObjectId>
+      <StateNumber>1584</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="13" parent="3" name="users_user_id_seq">
+      <ObjectId>26077</ObjectId>
+      <StateNumber>1585</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="14" parent="3" name="category">
+      <ObjectId>26034</ObjectId>
+      <StateNumber>1579</StateNumber>
+    </table>
+    <table id="15" parent="3" name="comment">
+      <ObjectId>26042</ObjectId>
+      <StateNumber>1580</StateNumber>
+    </table>
+    <table id="16" parent="3" name="good_category">
+      <ObjectId>26048</ObjectId>
+      <StateNumber>1581</StateNumber>
+    </table>
+    <table id="17" parent="3" name="goods">
+      <ObjectId>26055</ObjectId>
+      <StateNumber>1582</StateNumber>
+    </table>
+    <table id="18" parent="3" name="order_goods">
+      <ObjectId>26064</ObjectId>
+      <StateNumber>1583</StateNumber>
+    </table>
+    <table id="19" parent="3" name="orders">
+      <ObjectId>26071</ObjectId>
+      <StateNumber>1584</StateNumber>
+    </table>
+    <table id="20" parent="3" name="users">
+      <ObjectId>26079</ObjectId>
+      <StateNumber>1585</StateNumber>
+    </table>
+    <column id="21" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1579</StateNumber>
+      <SequenceName>category_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;category_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="22" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1579</StateNumber>
+    </column>
+    <index id="23" parent="14" name="category_pkey">
+      <ObjectId>26038</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="24" parent="14" name="category_pkey">
+      <ObjectId>26039</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1580</StateNumber>
+      <SequenceName>comment_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;comment_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="26" parent="15" name="text">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>1580</StateNumber>
+    </column>
+    <column id="27" parent="15" name="good_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1580</StateNumber>
+    </column>
+    <column id="28" parent="15" name="login">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1580</StateNumber>
+    </column>
+    <index id="29" parent="15" name="comment_pkey">
+      <ObjectId>26046</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="15" name="comment_pkey">
+      <ObjectId>26047</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>comment_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="16" name="good_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1581</StateNumber>
+    </column>
+    <column id="32" parent="16" name="category_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1581</StateNumber>
+    </column>
+    <index id="33" parent="16" name="good_category_pkey">
+      <ObjectId>26051</ObjectId>
+      <ColNames>good_id
+category_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="34" parent="16" name="good_category_pkey">
+      <ObjectId>26052</ObjectId>
+      <ColNames>good_id
+category_id</ColNames>
+      <UnderlyingIndexName>good_category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="17" name="good_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1582</StateNumber>
+      <SequenceName>goods_good_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;goods_good_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="36" parent="17" name="description">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>1582</StateNumber>
+    </column>
+    <column id="37" parent="17" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>1582</StateNumber>
+    </column>
+    <column id="38" parent="17" name="price">
+      <Position>4</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>1582</StateNumber>
+    </column>
+    <index id="39" parent="17" name="goods_pkey">
+      <ObjectId>26062</ObjectId>
+      <ColNames>good_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="17" name="goods_pkey">
+      <ObjectId>26063</ObjectId>
+      <ColNames>good_id</ColNames>
+      <UnderlyingIndexName>goods_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="18" name="order_id1">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1583</StateNumber>
+    </column>
+    <column id="42" parent="18" name="good_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1583</StateNumber>
+    </column>
+    <index id="43" parent="18" name="order_goods_pkey">
+      <ObjectId>26067</ObjectId>
+      <ColNames>order_id1
+good_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="18" name="order_goods_pkey">
+      <ObjectId>26068</ObjectId>
+      <ColNames>order_id1
+good_id</ColNames>
+      <UnderlyingIndexName>order_goods_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="19" name="order_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1584</StateNumber>
+      <SequenceName>orders_order_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;orders_order_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="46" parent="19" name="date">
+      <Position>2</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>1584</StateNumber>
+    </column>
+    <column id="47" parent="19" name="login">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1584</StateNumber>
+    </column>
+    <index id="48" parent="19" name="orders_pkey">
+      <ObjectId>26075</ObjectId>
+      <ColNames>order_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="49" parent="19" name="orders_pkey">
+      <ObjectId>26076</ObjectId>
+      <ColNames>order_id</ColNames>
+      <UnderlyingIndexName>orders_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="20" name="user_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1585</StateNumber>
+      <SequenceName>users_user_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;users_user_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="51" parent="20" name="gender">
+      <Position>2</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1585</StateNumber>
+    </column>
+    <column id="52" parent="20" name="login">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1585</StateNumber>
+    </column>
+    <column id="53" parent="20" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1585</StateNumber>
+    </column>
+    <index id="54" parent="20" name="users_pkey">
+      <ObjectId>26086</ObjectId>
+      <ColNames>user_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="20" name="users_pkey">
+      <ObjectId>26087</ObjectId>
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
