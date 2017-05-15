@@ -1,52 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6ebba02-ce78-44f8-852e-5e6401e2c244" name="Default" comment="reupdate">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/annotations/MyAnnotation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/CategoryDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/CategoryDAOInt.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/CommentDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/CommentDAOInt.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/GoodDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/GoodDAOInt.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/service/OrderDAOInt.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/CategoryDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/CategoryDAOInt.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/CommentDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/CommentDAOInt.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/GoodDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/GoodDAOInt.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/service/OrderDAOInt.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/config/Config.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/config/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/config/RootConfig.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/config/RootConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/config/WebInitializer.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/config/WebInitializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/controllers/CommentController.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/controllers/CommentController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/controllers/GoodController.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/controllers/GoodController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/IntegerToEntityConverter.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/IntegerToEntityConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/IntegerToGoodConverter.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/IntegerToGoodConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/IntegerToUserConverter.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/IntegerToUserConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/ListCategoryToListStringConverter.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/ListCategoryToListStringConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/StringToCategoryConverter.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/converters/StringToCategoryConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/CategoryJPA.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/CategoryJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/CommentJPA.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/CommentJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/GoodJPA.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/GoodJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/OrderJPA.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/OrderJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/UserJPA.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/entities/UserJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/loggers/WebServiceLogger.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/loggers/WebServiceLogger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/service/CategoryDAO.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/service/CategoryDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/service/CommentDAO.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/service/CommentDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/service/GoodDAO.class" afterPath="$PROJECT_DIR$/target/SemestrovayaSpring-1.0-SNAPSHOT/WEB-INF/classes/ru/kpfu/service/GoodDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/loggers/WebServiceLogger.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/loggers/WebServiceLogger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SemestrovayaSpring_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SemestrovayaSpring_war_exploded.xml" />
+    <list default="true" id="e6ebba02-ce78-44f8-852e-5e6401e2c244" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SemestrovayaSpring.iml" afterPath="$PROJECT_DIR$/SemestrovayaSpring.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/config/Config.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/config/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/config/RootConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/config/RootConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/controllers/GoodController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/controllers/GoodController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/loggers/WebServiceLogger.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/loggers/WebServiceLogger.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_5.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1387,12 +1343,20 @@
       <workItem from="1494717413428" duration="607000" />
       <workItem from="1494718057205" duration="2131000" />
       <workItem from="1494849287028" duration="1762000" />
-      <workItem from="1494863246501" duration="6476000" />
+      <workItem from="1494863246501" duration="6546000" />
     </task>
+    <task id="LOCAL-00001" summary="add logging with AOP">
+      <created>1494870620794</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1494870620794</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99365000" />
+    <option name="totallyTimeSpent" value="99435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1444,7 +1408,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="reupdate" />
-    <option name="LAST_COMMIT_MESSAGE" value="reupdate" />
+    <MESSAGE value="add logging with AOP" />
+    <option name="LAST_COMMIT_MESSAGE" value="add logging with AOP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
