@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ru.kpfu.annotations.MyAnnotation;
 import ru.kpfu.converters.IntegerToEntityConverter;
 import ru.kpfu.converters.IntegerToGoodConverter;
 import ru.kpfu.converters.ListCategoryToListStringConverter;
@@ -46,6 +47,7 @@ public class GoodController {
     public GoodController() {
     }
 
+    @MyAnnotation
     @RequestMapping({""})
     public String showGoods(Map map) {
         List<GoodJPA> goods = this.goodDAO.findAllGoods();
@@ -54,6 +56,7 @@ public class GoodController {
         return "goods";
     }
 
+    @MyAnnotation
     @RequestMapping(
             value = {"/add"},
             method = {RequestMethod.GET}
@@ -65,6 +68,7 @@ public class GoodController {
         return "addGood";
     }
 
+    @MyAnnotation
     @RequestMapping(
             value = {"/add"},
             method = {RequestMethod.POST}
@@ -87,7 +91,7 @@ public class GoodController {
             return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#getAddGood").build();
         }
     }
-
+    @MyAnnotation
     @RequestMapping({"/drop/{id}"})
     public String dropGood(@PathVariable Integer id) {
         this.goodDAO.deleteGood(id.intValue());
