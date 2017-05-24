@@ -23,13 +23,13 @@ import ru.kpfu.service.CommentDAOInt;
 @RequestMapping({"/good/{id_good}/comment"})
 public class CommentController {
     @Autowired
-    CommentDAOInt commentDAO;
+    private CommentDAOInt commentDAO;
     @Autowired
-    IntegerToGoodConverter integerToGoodConverter;
+    private IntegerToGoodConverter integerToGoodConverter;
     @Autowired
-    IntegerToUserConverter integerToUserConverter;
+    private IntegerToUserConverter integerToUserConverter;
     @Autowired
-    IntegerToEntityConverter integerToEntityConverter;
+    private IntegerToEntityConverter integerToEntityConverter;
 
     public CommentController() {
     }

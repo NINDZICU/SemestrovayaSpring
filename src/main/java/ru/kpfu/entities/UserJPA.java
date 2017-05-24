@@ -3,24 +3,22 @@ package ru.kpfu.entities;
 /**
  * Created by Anatoly on 15.05.2017.
  */
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(
         name = "users"
 )
-public class UserJPA implements Serializable {
+public class UserJPA implements UserDetails,Serializable {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
@@ -37,6 +35,9 @@ public class UserJPA implements Serializable {
             unique = true
     )
     private String login;
+    @NotNull
+    @Column
+    private String password;
     @Column
     @NotNull
     private String name;
@@ -57,6 +58,11 @@ public class UserJPA implements Serializable {
             cascade = {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.REFRESH}
     )
     private Set<CommentJPA> comments;
+
+    @ManyToMany(fetch = FetchType.EAGER,cascade={CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinTable(name = "user_authorities", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
+    inverseJoinColumns = {@JoinColumn(name="authority_id", referencedColumnName = "id")})
+    private Set<AuthorityJPA> authorities = new HashSet<>();
 
     public UserJPA() {
     }
@@ -109,46 +115,73 @@ public class UserJPA implements Serializable {
         this.id = id;
     }
 
-    public boolean equals(Object o) {
-        if(this == o) {
-            return true;
-        } else if(o != null && this.getClass() == o.getClass()) {
-            UserJPA user = (UserJPA)o;
-            if(this.id != user.id) {
-                return false;
-            } else {
-                label44: {
-                    if(this.login != null) {
-                        if(this.login.equals(user.login)) {
-                            break label44;
-                        }
-                    } else if(user.login == null) {
-                        break label44;
-                    }
 
-                    return false;
-                }
-
-                if(this.name != null) {
-                    if(!this.name.equals(user.name)) {
-                        return false;
-                    }
-                } else if(user.name != null) {
-                    return false;
-                }
-
-                return this.gender != null?this.gender.equals(user.gender):user.gender == null;
-            }
-        } else {
-            return false;
-        }
+    public String getPassword() {
+        return password;
     }
 
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public Set<AuthorityJPA> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<AuthorityJPA> authorities) {
+        this.authorities = authorities;
+    }
+    public void addAuthority(AuthorityJPA authority) {
+        this.authorities.add(authority);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserJPA userJPA = (UserJPA) o;
+
+        if (id != userJPA.id) return false;
+        if (login != null ? !login.equals(userJPA.login) : userJPA.login != null) return false;
+        if (password != null ? !password.equals(userJPA.password) : userJPA.password != null) return false;
+        if (name != null ? !name.equals(userJPA.name) : userJPA.name != null) return false;
+        return gender != null ? gender.equals(userJPA.gender) : userJPA.gender == null;
+    }
+
+    @Override
     public int hashCode() {
-        int result = this.id;
-        result = 31 * result + (this.login != null?this.login.hashCode():0);
-        result = 31 * result + (this.name != null?this.name.hashCode():0);
-        result = 31 * result + (this.gender != null?this.gender.hashCode():0);
+        int result = id;
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
         return result;
     }
 }

@@ -19,7 +19,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-@EnableJpaRepositories(basePackages = {"ru.kpfu.repositories", "ru.kpfu.service"}
+@EnableJpaRepositories(basePackages = {"ru.kpfu.repositories"}
 )
 @ComponentScan(basePackages = {"ru.kpfu.entities"}
 )

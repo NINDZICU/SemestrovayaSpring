@@ -25,7 +25,7 @@ import ru.kpfu.loggers.WebServiceLogger;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@ComponentScan({"ru.kpfu"})
+@ComponentScan({"ru.kpfu.controllers", "ru.kpfu.converters", "ru.kpfu.loggers","ru.kpfu.service"})
 public class Config extends WebMvcConfigurerAdapter {
     public Config() {
     }

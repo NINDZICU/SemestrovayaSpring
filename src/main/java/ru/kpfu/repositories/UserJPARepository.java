@@ -9,4 +9,5 @@ import ru.kpfu.entities.UserJPA;
 
 @Repository
 public interface UserJPARepository extends JpaRepository<UserJPA, Integer> {
+    UserJPA findUserJPAByLogin(String login);
 }

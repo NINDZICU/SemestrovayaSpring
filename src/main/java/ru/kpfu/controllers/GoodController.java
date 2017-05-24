@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,23 +33,24 @@ import ru.kpfu.service.GoodDAOInt;
 @RequestMapping({"/good"})
 public class GoodController {
     @Autowired
-    CategoryDAOInt categoryDAO;
+    private CategoryDAOInt categoryDAO;
     @Autowired
-    GoodDAOInt goodDAO;
+    private GoodDAOInt goodDAO;
     @Autowired
-    ListCategoryToListStringConverter listCategoryToListString;
+    private ListCategoryToListStringConverter listCategoryToListString;
     @Autowired
-    StringToCategoryConverter stringToCategoryConverter;
+    private StringToCategoryConverter stringToCategoryConverter;
     @Autowired
-    IntegerToGoodConverter integerToGoodConverter;
+    private IntegerToGoodConverter integerToGoodConverter;
     @Autowired
-    IntegerToEntityConverter integerToEntityConverter;
+    private IntegerToEntityConverter integerToEntityConverter;
 
     public GoodController() {
     }
 
     @MyAnnotation
     @RequestMapping({""})
+    @PreAuthorize("isAuthenticated()")
     public String showGoods(Map map) {
         List<GoodJPA> goods = this.goodDAO.findAllGoods();
         map.put("goods", goods);
@@ -57,6 +59,7 @@ public class GoodController {
     }
 
     @MyAnnotation
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(
             value = {"/add"},
             method = {RequestMethod.GET}
@@ -69,6 +72,7 @@ public class GoodController {
     }
 
     @MyAnnotation
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(
             value = {"/add"},
             method = {RequestMethod.POST}
@@ -92,6 +96,7 @@ public class GoodController {
         }
     }
     @MyAnnotation
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping({"/drop/{id}"})
     public String dropGood(@PathVariable Integer id) {
         this.goodDAO.deleteGood(id.intValue());
@@ -102,6 +107,7 @@ public class GoodController {
             value = {"/edit/{id}"},
             method = {RequestMethod.GET}
     )
+    @PreAuthorize("hasRole('ADMIN')")
     public String getEditGood(@PathVariable Integer id, Map map) {
         map.put("good", this.integerToGoodConverter.convert(id));
         return "addGood";
@@ -111,6 +117,7 @@ public class GoodController {
             value = {"/edit/{id}"},
             method = {RequestMethod.POST}
     )
+    @PreAuthorize("hasRole('ADMIN')")
     public String editGood(@PathVariable Integer id, @ModelAttribute("good") GoodJPA good) {
         Set<CategoryJPA> categories = new HashSet();
         Iterator var4 = good.getCategories().iterator();

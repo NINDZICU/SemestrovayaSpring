@@ -17,8 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(
-        name = "category"
+@Table(name = "category"
 )
 public class CategoryJPA implements Serializable {
     @Id

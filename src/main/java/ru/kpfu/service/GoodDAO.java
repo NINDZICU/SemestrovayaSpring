@@ -6,6 +6,7 @@ package ru.kpfu.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.kpfu.annotations.MyAnnotation;
 import ru.kpfu.entities.CategoryJPA;
 import ru.kpfu.entities.GoodJPA;
 import ru.kpfu.repositories.GoodJPARepository;
@@ -17,7 +18,7 @@ public class GoodDAO implements GoodDAOInt {
 
     public GoodDAO() {
     }
-
+    @MyAnnotation
     public List<GoodJPA> findAllGoods() {
         return this.goodJPARepository.findAll();
     }

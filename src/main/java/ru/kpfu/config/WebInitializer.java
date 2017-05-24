@@ -14,14 +14,19 @@ public class WebInitializer extends AbstractDispatcherServletInitializer {
     protected WebApplicationContext createServletApplicationContext() {
         AnnotationConfigWebApplicationContext cfg = new AnnotationConfigWebApplicationContext();
         cfg.register(new Class[]{Config.class});
+        cfg.register(SecurityConfig.class);
         return cfg;
     }
+
 
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
 
     protected WebApplicationContext createRootApplicationContext() {
-        return null;
+        AnnotationConfigWebApplicationContext cfg = new AnnotationConfigWebApplicationContext();
+        cfg.register(new Class[]{RootConfig.class});
+        cfg.register(SecurityConfig.class);
+        return cfg;
     }
 }

@@ -19,6 +19,7 @@
         <hibernate.version>5.1.0.Final</hibernate.version>
         <!-- AOP -->
         <aspectj.version>1.8.5</aspectj.version>
+        <spring-security.version>4.0.0.RELEASE</spring-security.version>
 
 
     </properties>
@@ -151,6 +152,23 @@
             <version>${aspectj.version}</version>
         </dependency>
 
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -196,8 +214,8 @@
                 <groupId>org.apache.cassandra</groupId>
                 <artifactId>cassandra-all</artifactId>
                 <version>0.8.1</version>
-
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
