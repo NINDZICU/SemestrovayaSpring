@@ -25,11 +25,14 @@ import ru.kpfu.converters.ListCategoryToListStringConverter;
 import ru.kpfu.converters.StringToCategoryConverter;
 import ru.kpfu.entities.CategoryJPA;
 import ru.kpfu.entities.GoodJPA;
+import ru.kpfu.repositories.GoodJPARepository;
 import ru.kpfu.service.CategoryDAOInt;
+import ru.kpfu.service.GoodDAO;
 import ru.kpfu.service.GoodDAOInt;
 
 @Controller
 @RequestMapping({"/catalog"})
+@PreAuthorize("isAuthenticated()")
 public class GoodsCatalogController {
     @Autowired
     private CategoryDAOInt categoryDAO;
@@ -43,6 +46,8 @@ public class GoodsCatalogController {
     private IntegerToGoodConverter integerToGoodConverter;
     @Autowired
     private IntegerToEntityConverter integerToEntityConverter;
+    @Autowired
+    private GoodJPARepository goodJPARepository;
 
     public GoodsCatalogController() {
     }
@@ -53,6 +58,7 @@ public class GoodsCatalogController {
     public String showGoods(Map map) {
         List<GoodJPA> goods = this.goodDAO.findAllGoods();
         map.put("goods", goods);
+        map.put("catalog_goods", goods);
         return "goods";
     }
 
@@ -90,7 +96,7 @@ public class GoodsCatalogController {
             good.setCategories(categories);
             this.goodDAO.addGood(good);
             redirectAttributes.addFlashAttribute("message", "Add Success");
-            return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#getAddGood").build();
+            return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#getAddGood").build();
         }
     }
     @MyAnnotation
@@ -98,7 +104,7 @@ public class GoodsCatalogController {
     @RequestMapping({"/drop/{id}"})
     public String dropGood(@PathVariable Integer id) {
         this.goodDAO.deleteGood(id.intValue());
-        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#showGoods").build();
+        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGoods").build();
     }
 
     @RequestMapping(
@@ -108,7 +114,7 @@ public class GoodsCatalogController {
     @PreAuthorize("hasRole('ADMIN')")
     public String getEditGood(@PathVariable Integer id, Map map) {
         map.put("good", this.integerToGoodConverter.convert(id));
-        return "addGood";
+        return "editGood";
     }
 
     @RequestMapping(
@@ -117,6 +123,7 @@ public class GoodsCatalogController {
     )
     @PreAuthorize("hasRole('ADMIN')")
     public String editGood(@PathVariable Integer id, @ModelAttribute("good") GoodJPA good) {
+
         Set<CategoryJPA> categories = new HashSet();
         Iterator var4 = good.getCategories().iterator();
 
@@ -124,10 +131,19 @@ public class GoodsCatalogController {
             CategoryJPA k = (CategoryJPA)var4.next();
             categories.add(this.stringToCategoryConverter.convert(k.getName()));
         }
-
         good.setCategories(categories);
         good.setId(id);
+
         this.goodDAO.addGood(good);
-        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#showGoods").build();
+
+        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGoods").build();
+    }
+
+    @RequestMapping("/{category}")
+    public String showGoodByCategory(@PathVariable String category, Map map){
+        List<GoodJPA> goods = this.goodDAO.findGoodsByCategory(categoryDAO.findCategoryByName(category));
+        map.put("goods", goods);
+        map.put("catalog_goods", goods);
+        return "goods";
     }
 }

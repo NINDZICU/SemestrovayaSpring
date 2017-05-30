@@ -38,10 +38,14 @@
         <!-- Список ссылок, расположенных слева -->
         <ul class="nav navbar-nav">
             <!--Элемент с классом active отображает ссылку подсвеченной -->
-            <li class="active"><a href=${s:mvcUrl('GCC#showGoods').build()}><s:message code="mainPage.name"/> <span
+            <li><a href=${s:mvcUrl('MPC#showMainPage').build()}><s:message code="mainPage.name"/> <span
                     class="sr-only">(current)</span></a></li>
             <li><a href=${s:mvcUrl('GCC#showGoods').build()}><s:message code="goods.name"/></a></li>
-            <li><a href="/feedback"><s:message code="callback.name"/></a></li>
+
+            <li><a href="${s:mvcUrl('GCC#showGoodByCategory').arg(0, 'Marshmallow').build()}">Marshmalow</a></li>
+            <li><a href="${s:mvcUrl('GCC#showGoodByCategory').arg(0, 'Jelly Bean').build()}">Jelly Bean</a></li>
+            <li><a href="${s:mvcUrl('GCC#showGoodByCategory').arg(0, 'Candies').build()}">Candies</a></li>
+            <li><a href="${s:mvcUrl('GCC#showGoodByCategory').arg(0, 'Cookies').build()}">Cookies</a></li>
         </ul>
         <!-- Список ссылок, расположенный справа -->
         <ul class="nav navbar-nav navbar-right">

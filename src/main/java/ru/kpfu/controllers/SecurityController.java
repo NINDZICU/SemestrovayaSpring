@@ -48,7 +48,7 @@ public class SecurityController {
         else{
             System.out.println(user.getGender());
             userService.registerUser(user);
-            return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#showGoods").build();
+            return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGoods").build();
         }
     }
 

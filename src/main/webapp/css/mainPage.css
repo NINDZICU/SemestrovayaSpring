@@ -1,11 +1,16 @@
 .banner{
-    background: url(../images/banner.png) no-repeat center top;
+    background: url(../images/logo2.png) no-repeat center top;
     background-size: cover;
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
     -ms-background-size:cover;
     min-height:520px;
+}
+.text-banner{
+    font-size: 50pt;
+    font-weight: bold;
+    color: #0b1e2b;
 }
 .container-padding{
     padding: 170pt 120pt 0 0;

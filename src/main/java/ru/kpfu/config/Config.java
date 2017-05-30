@@ -45,7 +45,11 @@ public class Config extends WebMvcConfigurerAdapter {
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(new String[]{"/css/**"}).addResourceLocations(new String[]{"/css/"});
+        registry.addResourceHandler(new String[]{"/images/**"}).addResourceLocations(new String[]{"/images/"});
+        registry.addResourceHandler(new String[]{"/js/**"}).addResourceLocations(new String[]{"/js/"});
+
     }
+
 
     @Bean
     public MessageSource messageSource() {

@@ -19,56 +19,59 @@
 
 
     <div class="window">
-        <div class="container">
-            <div class="information">
-                <c:forEach items="${goods}" var="good">
+    <div class="container">
+    <div class="information">
+    <c:forEach items="${goods}" var="good">
 
-                <div class="img_good_cont">
-                        <%--<img class="img_good" src="<c:url value="/images/${img_good}"/>" alt=""/>--%>
-                </div>
-
-                <div class="descr">
-                    <div class="add_good">
-                        <form:form method="post" commandName="good"
-                                   action="${s:mvcUrl('GCC#showGoods').arg(0, good.id).build()}">
-                            <select class="select_quantity" name='quantity' required>
-                                <option disabled>Select quantity</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="submit" class="btn_add" name="add" value="add to basket">
-                        </form:form>
-                        <%--<form action="/basket/add?id=${catalogId}" method="get">--%>
-
-                        <%--</form>--%>
-                    </div>
-                    <h3>${good.name}</h3>
-                    <p>${good.price} руб.</p>
-
-                    <div class="text_information">
-
-                        <h3>Information</h3>
-                        <p>${good.description}</p>
-                    </div>
-                </div>
-                    <p>Comments:</p>
-                    <c:forEach items="${good.comments}" var="comment">
-                        <p>${comment.text}</p>
-                    </c:forEach>
-                    <form:form method="post" commandName="comment"
-                               action="${s:mvcUrl('CC#addComment').arg(0, good.id).build()}">
-                        <form:textarea path="text"></form:textarea>
-                        <input type="submit" value=<s:message code="btn.add.comment"/>>
-                    </form:form>
-                </c:forEach>
+        <div class="img_good_cont">
+            <img class="img_good" src="<c:url value="/images/${good.img}"/>" alt=""/>
         </div>
 
+        <div class="descr">
+            <div class="add_good">
+                <form:form method="post" commandName="goodForm"
+                           action="${s:mvcUrl('GC#addGoodToBucket').arg(0, good.id).build()}">
+                    <select class="select_quantity" name='quantity' required>
+                        <option disabled>Select quantity</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                    <input type="submit" class="btn btn-success" name="add" value="add to basket">
+                </form:form>
+                    <%--<form action="/basket/add?id=${catalogId}" method="get">--%>
+
+                    <%--</form>--%>
+            </div>
+            <h3>${good.name}</h3>
+            <p>${good.price} руб.</p>
+
+            <div class="text_information">
+
+                <h3>Information</h3>
+                <p>${good.description}</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="row col-md-offset-3">
+        <p>Comments:</p>
+        <form:form method="post" commandName="comment"
+                   action="${s:mvcUrl('CC#addComment').arg(0, good.id).build()}">
+            <form:textarea class="form-control" rows="4" path="text"></form:textarea>
+            <input class="btn btn-primary" type="submit" value=<s:message code="btn.add.comment"/>>
+        </form:form>
+        <c:forEach items="${good.comments}" var="comment">
+            <p>${comment.text}</p>
+        </c:forEach>
+    </c:forEach>
     </div>
-    </div>
+
+
     <div class="clear-float"></div>
     <div class="banner-bottom"></div>
 

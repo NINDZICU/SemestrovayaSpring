@@ -40,6 +40,8 @@ public class GoodJPA implements Serializable {
     private double price;
     @Column
     private String description;
+    @Column
+    private String img;
     @ManyToMany(
             cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}
     )
@@ -123,6 +125,14 @@ public class GoodJPA implements Serializable {
 
     public void setCategories(Set<CategoryJPA> categories) {
         this.categories = categories;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public Set<OrderJPA> getOrders() {

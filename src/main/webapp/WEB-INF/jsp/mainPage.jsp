@@ -16,8 +16,9 @@
         <div class="container">
             <div class="container-padding">
                 <div class="banner-info">
-                    <h1>Sweet Dream</h1>
-                    <p>Все ваши сладкие мечты воплощаются здесь!</p>
+                    <h1 class="text-banner">EAT WELL‭‬</h1>
+                       <h1 class="text-banner"> LIVE WELL</h1>
+                    <p class="text-banner">Все ваши сладкие мечты воплощаются здесь!</p>
                 </div>
             </div>
         </div>

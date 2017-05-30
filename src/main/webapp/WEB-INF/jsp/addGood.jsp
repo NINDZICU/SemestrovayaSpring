@@ -14,7 +14,7 @@
 <t:toolbar>
     <h2 style="color: green">${message}</h2>
     <h2>Add Good</h2>
-    <form:form method="POST" action="/good/add" cssclass="form-horizontal" commandName="good">
+    <form:form method="POST" action="${s:mvcUrl('GCC#addGood').build()}" cssclass="form-horizontal" commandName="good">
         <div class="form-group">
             <form:label path="name" cssClass="control-label col-xs-3" for="name"><s:message
                     code="reg.name.name"/></form:label>
@@ -35,6 +35,14 @@
         <form:label path="description">Description:</form:label>
         <form:textarea path="description"/>
         <form:errors cssStyle="color: red" path="description"/><br>
+
+        <div class="form-group">
+        <form:label path="img" cssClass="control-label col-xs-3" for="name">Name of image</form:label>
+        <div class="col-xs-9">
+            <form:input path="img" id="img" cssClass="form-control"/>
+        </div>
+        <form:errors cssStyle="color: red" path="img"/><br>
+        </div>
 
         <form:label path="categories">Category:</form:label>
         <form:select path="categories" multiple="true" size="5">

@@ -39,14 +39,16 @@ public class CommentController {
             method = {RequestMethod.POST}
     )
     public String addComment(@PathVariable Integer id_good, @ModelAttribute("comment") CommentJPA comment) throws NoSuchFieldException {
+        System.out.println("COOMMMMMEMEMENTNTHSJGSGH"+comment+"IDIDIDID"+id_good);
         TypeDescriptor sourceType = TypeDescriptor.valueOf(Integer.class);
         TypeDescriptor targetType = TypeDescriptor.valueOf(GoodJPA.class);
         GoodJPA good = (GoodJPA)this.integerToEntityConverter.convert(id_good, sourceType, targetType);
         comment.setGood(good);
         targetType = TypeDescriptor.valueOf(UserJPA.class);
-        UserJPA user = (UserJPA)this.integerToEntityConverter.convert(Integer.valueOf(1), sourceType, targetType);
+        //TODO сделать запись id юзера в сессию
+        UserJPA user = (UserJPA)this.integerToEntityConverter.convert(Integer.valueOf(11), sourceType, targetType);
         comment.setUser(user);
         this.commentDAO.addComment(comment);
-        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGood").arg(0, id_good).build();
+        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#showGood").arg(0, id_good).build();
     }
 }
