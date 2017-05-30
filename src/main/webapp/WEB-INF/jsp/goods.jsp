@@ -16,7 +16,7 @@
 <t:toolbar>
     <security:authorize access="hasAnyRole('ROLE_ADMIN')" var="isAdmin"/>
     <c:if test="${isAdmin}">
-        <a href="${s:mvcUrl('GC#addGood').build()}">
+        <a href="${s:mvcUrl('GCC#addGood').build()}">
             <button><s:message code="btn.add.good"/></button>
         </a>
     </c:if>
@@ -32,7 +32,9 @@
                     <div class="row">
                     <c:if test="${not empty good.name}">
                         <div class="good_name col-md-2">
-                            <h2 style="color: saddlebrown">${good.name}</h2>
+                            <a href="${s:mvcUrl('GC#showGood').arg(0, good.id).build()}"
+                               style="color: saddlebrown">${good.name}</a>
+                            <h2 style="color: saddlebrown"></h2>
                         </div>
                         <div class="good_description col-md-2 col-md-offset-1">
                             <p>${good.description}</p>
@@ -45,26 +47,18 @@
                         <c:if test="${isAdmin}">
                             <div class="form-group">
                                 <div class="col-md-2 col-md-offset-1">
-                                    <a href="${s:mvcUrl('GC#getEditGood').arg(0, good.id).build()}">
+                                    <a href="${s:mvcUrl('GCC#getEditGood').arg(0, good.id).build()}">
                                         <button class="btn btn-primary"><s:message code="btn.edit.good"/></button>
                                     </a>
-                                    <a href="${s:mvcUrl('GC#dropGood').arg(0, good.id).build()}">
+                                    <a href="${s:mvcUrl('GCC#dropGood').arg(0, good.id).build()}">
                                         <button class="btn btn-danger"><s:message code="btn.drop.good"/></button>
                                     </a>
                                 </div>
                             </div>
                         </c:if>
                         </div>
-                        <p>Comments:</p>
-                        <c:forEach items="${good.comments}" var="comment">
-                            <p>${comment.text}</p>
-                        </c:forEach>
                     </c:if>
-                    <form:form method="post" commandName="comment"
-                               action="${s:mvcUrl('CC#addComment').arg(0, good.id).build()}">
-                        <form:textarea path="text"></form:textarea>
-                        <input type="submit" value=<s:message code="btn.add.comment"/>>
-                    </form:form>
+
                 </c:forEach>
             </c:when>
             <c:otherwise>

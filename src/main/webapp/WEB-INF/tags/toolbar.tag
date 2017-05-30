@@ -38,17 +38,17 @@
         <!-- Список ссылок, расположенных слева -->
         <ul class="nav navbar-nav">
             <!--Элемент с классом active отображает ссылку подсвеченной -->
-            <li class="active"><a href=${s:mvcUrl('GC#showGoods').build()}><s:message code="mainPage.name"/> <span
+            <li class="active"><a href=${s:mvcUrl('GCC#showGoods').build()}><s:message code="mainPage.name"/> <span
                     class="sr-only">(current)</span></a></li>
-            <li><a href=${s:mvcUrl('GC#showGoods').build()}><s:message code="goods.name"/></a></li>
+            <li><a href=${s:mvcUrl('GCC#showGoods').build()}><s:message code="goods.name"/></a></li>
             <li><a href="/feedback"><s:message code="callback.name"/></a></li>
         </ul>
         <!-- Список ссылок, расположенный справа -->
         <ul class="nav navbar-nav navbar-right">
-            <%--<li><a href=${s:mvcUrl('GC').build()}><s:message code="registrationjsr303.name"/></a></li>--%>
+            <%--<li><a href=${s:mvcUrl('GCC').build()}><s:message code="registrationjsr303.name"/></a></li>--%>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <%--<li><a href=${s:mvcUrl('GC').build()}><s:message code="registrationvalidator.name"/></a></li>--%>
+            <%--<li><a href=${s:mvcUrl('GCC').build()}><s:message code="registrationvalidator.name"/></a></li>--%>
         </ul>
         <c:if test="${isUser}">
             <ul class="nav navbar-nav navbar-right">

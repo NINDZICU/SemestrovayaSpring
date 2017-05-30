@@ -47,6 +47,6 @@ public class CommentController {
         UserJPA user = (UserJPA)this.integerToEntityConverter.convert(Integer.valueOf(1), sourceType, targetType);
         comment.setUser(user);
         this.commentDAO.addComment(comment);
-        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GC#showGoods").build();
+        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGood").arg(0, id_good).build();
     }
 }
