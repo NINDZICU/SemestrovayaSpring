@@ -72,6 +72,10 @@
                                 <label for="checkbox1">Subscribe me to the newsletter</label>
                             </fieldset>
                         </div>
+                        <form:input path="captcha" cssClass="form-control" />
+                        <form:errors path="captcha" cssStyle="color: red"/>${captchaError}
+                        <img height="300px" id="captchaImage1" border="0" width="300px"
+                             src="<c:url value="/images1/image.jpg"/>" onclick="f1()" />
                     </form:form>
 
                 </div>

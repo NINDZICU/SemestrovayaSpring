@@ -19,16 +19,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.kpfu.annotations.MyAnnotation;
-import ru.kpfu.converters.IntegerToEntityConverter;
 import ru.kpfu.converters.IntegerToGoodConverter;
 import ru.kpfu.converters.ListCategoryToListStringConverter;
 import ru.kpfu.converters.StringToCategoryConverter;
 import ru.kpfu.entities.CategoryJPA;
 import ru.kpfu.entities.GoodJPA;
-import ru.kpfu.repositories.GoodJPARepository;
 import ru.kpfu.service.CategoryDAOInt;
-import ru.kpfu.service.GoodDAO;
 import ru.kpfu.service.GoodDAOInt;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping({"/catalog"})
@@ -44,10 +43,6 @@ public class GoodsCatalogController {
     private StringToCategoryConverter stringToCategoryConverter;
     @Autowired
     private IntegerToGoodConverter integerToGoodConverter;
-    @Autowired
-    private IntegerToEntityConverter integerToEntityConverter;
-    @Autowired
-    private GoodJPARepository goodJPARepository;
 
     public GoodsCatalogController() {
     }
@@ -81,7 +76,7 @@ public class GoodsCatalogController {
             value = {"/add"},
             method = {RequestMethod.POST}
     )
-    public String addGood(@ModelAttribute("good") GoodJPA good, BindingResult result, RedirectAttributes redirectAttributes) {
+    public String addGood(@Valid @ModelAttribute("good") GoodJPA good, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()) {
             return "addGood";
         } else {
@@ -122,21 +117,25 @@ public class GoodsCatalogController {
             method = {RequestMethod.POST}
     )
     @PreAuthorize("hasRole('ADMIN')")
-    public String editGood(@PathVariable Integer id, @ModelAttribute("good") GoodJPA good) {
-
-        Set<CategoryJPA> categories = new HashSet();
-        Iterator var4 = good.getCategories().iterator();
-
-        while(var4.hasNext()) {
-            CategoryJPA k = (CategoryJPA)var4.next();
-            categories.add(this.stringToCategoryConverter.convert(k.getName()));
+    public String editGood(@PathVariable Integer id,@Valid @ModelAttribute("good") GoodJPA good, BindingResult result) {
+        if(result.hasErrors()){
+            return "editGoods";
         }
-        good.setCategories(categories);
-        good.setId(id);
+        else {
+            Set<CategoryJPA> categories = new HashSet();
+            Iterator var4 = good.getCategories().iterator();
 
-        this.goodDAO.addGood(good);
+            while (var4.hasNext()) {
+                CategoryJPA k = (CategoryJPA) var4.next();
+                categories.add(this.stringToCategoryConverter.convert(k.getName()));
+            }
+            good.setCategories(categories);
+            good.setId(id);
 
-        return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGoods").build();
+            this.goodDAO.addGood(good);
+
+            return "redirect:" + MvcUriComponentsBuilder.fromMappingName("GCC#showGoods").build();
+        }
     }
 
     @RequestMapping("/{category}")

@@ -71,9 +71,9 @@
                 <li><a href="/login">Login</a></li>
             </ul>
         </c:if>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/information"><s:message code="aboutUs.name"/></a></li>
-        </ul>
+        <%--<ul class="nav navbar-nav navbar-right">--%>
+            <%--<li><a href="/information"><s:message code="aboutUs.name"/></a></li>--%>
+        <%--</ul>--%>
 
         <ul class="nav navbar-nav navbar-right">
             <a href="?lang=en">en</a>

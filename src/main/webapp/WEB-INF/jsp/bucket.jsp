@@ -34,21 +34,21 @@
                                     </div>
                                 </div>
                                 <div class="price">${good.price} руб.</div>
-                                <div class="quantity">Quantity:</div>
+                                <%--<div class="quantity">Quantity:</div>--%>
 
-                                <form class="basket_item" action="<c:url value="/good/edit"/>" method="post">
-                                    <select class="select_quantity" name='quantity' required>
-                                        <option disabled>Select quantity</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
+                                <%--<form class="basket_item" action="<c:url value="/good/edit"/>" method="post">--%>
+                                    <%--<select class="select_quantity" name='quantity' required>--%>
+                                        <%--<option disabled>Select quantity</option>--%>
+                                        <%--<option>1</option>--%>
+                                        <%--<option>2</option>--%>
+                                        <%--<option>3</option>--%>
+                                        <%--<option>4</option>--%>
+                                        <%--<option>5</option>--%>
+                                        <%--<option>6</option>--%>
+                                    <%--</select>--%>
                                     <%--<input type="text" name="id" hidden value="${good.id}">--%>
-                                    <input type="submit" class="btn btn-primary" value="Edit quantity">
-                                </form>
+                                    <%--<input type="submit" class="btn btn-primary" value="Edit quantity">--%>
+                                <%--</form>--%>
                                 <div class="link">
                                     <a href="${s:mvcUrl('BC#dropGoodFromBucket').arg(0, good.id).build()}">
                                         <button class="btn btn-danger">Remove</button>
@@ -64,7 +64,7 @@
             </div>
             <div class="clear-float"></div>
             <div class="link">
-                <form action="/check" method="get">
+                <form action="action="${s:mvcUrl('BC#dropAllGoodFromBucket').build()}" method="get">
                     <input class="btn btn-primary" type="submit" name="doCheck" value="Оформить заказ">
                 </form>
             </div>

@@ -37,7 +37,7 @@
                     </div>
 
                     <!--Body-->
-                    <%--<c:url value="/j_spring_security_check" var="loginUrl" />--%>
+                        <%--<c:url value="/j_spring_security_check" var="loginUrl" />--%>
                     <form:form method="post" commandName="loginForm">
                         <div class="md-form">
                             <i class="fa fa-envelope prefix"></i>
@@ -70,13 +70,14 @@
 
         </div>
     </div>
-    <script type="text/javascript" src="/resources/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="<c:url value="/js/jquery-3.1.1.js"/>"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="/resources/js/tether.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/js/tether.min.js"/>"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/js/bootstrap.min.js"/>"></script>
+
 
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/resources/js/mdb.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/js/mdb.min.js"/>"></script>
 </t:toolbar>

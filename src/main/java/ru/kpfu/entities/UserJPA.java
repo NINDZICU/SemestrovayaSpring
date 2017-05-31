@@ -4,6 +4,7 @@ package ru.kpfu.entities;
  * Created by Anatoly on 15.05.2017.
  */
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,7 +13,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(
@@ -34,12 +37,15 @@ public class UserJPA implements UserDetails,Serializable {
             name = "login",
             unique = true
     )
+    @Pattern(regexp = "^[a-zA-Z0-9_.-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,8}$", message = " Login must contain valid characters and have a length from 11 to 30")
     private String login;
     @NotNull
     @Column
+    @Length(min = 6)
     private String password;
     @Column
     @NotNull
+    @Length(min = 1)
     private String name;
     @Column(
             length = 2
@@ -64,7 +70,19 @@ public class UserJPA implements UserDetails,Serializable {
     inverseJoinColumns = {@JoinColumn(name="authority_id", referencedColumnName = "id")})
     private Set<AuthorityJPA> authorities = new HashSet<>();
 
+    @Transient
+    private String captcha;
+
+
     public UserJPA() {
+    }
+
+    public String getCaptcha() {
+        return captcha;
+    }
+
+    public void setCaptcha(String captcha) {
+        this.captcha = captcha;
     }
 
     public String getLogin() {

@@ -35,8 +35,10 @@ public class GoodJPA implements Serializable {
     )
     private Integer id = Integer.valueOf(-1);
     @Column
+    @NotNull
     private String name;
     @Column
+    @NotNull
     private double price;
     @Column
     private String description;

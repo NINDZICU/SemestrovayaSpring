@@ -3,6 +3,7 @@ package ru.kpfu.config;
 /**
  * Created by Anatoly on 15.05.2017.
  */
+import java.util.List;
 import java.util.Locale;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import ru.kpfu.loggers.WebServiceLogger;
@@ -25,7 +29,7 @@ import ru.kpfu.loggers.WebServiceLogger;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@ComponentScan({"ru.kpfu.controllers", "ru.kpfu.converters", "ru.kpfu.loggers","ru.kpfu.service"})
+@ComponentScan({"ru.kpfu.controllers", "ru.kpfu.converters", "ru.kpfu.loggers","ru.kpfu.service", "ru.kpfu.captcha"})
 public class Config extends WebMvcConfigurerAdapter {
     public Config() {
     }
@@ -45,8 +49,11 @@ public class Config extends WebMvcConfigurerAdapter {
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(new String[]{"/css/**"}).addResourceLocations(new String[]{"/css/"});
-        registry.addResourceHandler(new String[]{"/images/**"}).addResourceLocations(new String[]{"/images/"});
+        registry.addResourceHandler("/images1/**").addResourceLocations("file:E:\\Tolya\\Univer\\Прога 2курс\\kfu-programming-java4-master\\SemestrovayaSpring\\src\\main\\images\\");
         registry.addResourceHandler(new String[]{"/js/**"}).addResourceLocations(new String[]{"/js/"});
+        registry.addResourceHandler("/images/**").addResourceLocations("/images/");
+
+
 
     }
 
@@ -77,5 +84,17 @@ public class Config extends WebMvcConfigurerAdapter {
     @Bean
     public WebServiceLogger webServiceLogger(){
         return new WebServiceLogger();
+    }
+
+    @Bean
+    public ByteArrayHttpMessageConverter byteArrayHttpMessageConverter(){
+        ByteArrayHttpMessageConverter converter = new ByteArrayHttpMessageConverter();
+        return converter;
+    }
+    @Bean
+    public AnnotationMethodHandlerAdapter annotationMethodHandlerAdapter(){
+        AnnotationMethodHandlerAdapter adapter = new AnnotationMethodHandlerAdapter();
+        adapter.setMessageConverters(new HttpMessageConverter[]{byteArrayHttpMessageConverter()});
+        return adapter;
     }
 }

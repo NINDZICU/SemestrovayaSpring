@@ -13,7 +13,7 @@
 
 <t:toolbar>
     <h2 style="color: green">${message}</h2>
-    <h2>Add Good</h2>
+    <h2>Edit Good</h2>
     <form:form method="POST" action="${s:mvcUrl('GCC#editGood').arg(0, good.id).build()}" cssclass="form-horizontal" commandName="good">
         <div class="form-group">
             <form:label path="name" cssClass="control-label col-xs-3" for="name"><s:message
